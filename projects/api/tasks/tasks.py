@@ -177,7 +177,7 @@ async def handle_task_email_sender(task_id: str,
     
     message = MessageSchema(
         subject=f"Arquivos da tarefa '{task.name}'",
-        recipients=["andreluizsplinter@gmail.com"],  # List of recipients, as many as you can pass 
+        recipients=email.dict().get("email"),  # List of recipients, as many as you can pass 
         body=template,
         attachments=['taskfiles.zip'],
         subtype="html"
