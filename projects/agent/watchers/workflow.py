@@ -3,6 +3,7 @@ import logging
 import http
 import re
 import uuid
+import sys
 
 from kubernetes import watch
 from kubernetes.client.rest import ApiException
@@ -69,6 +70,9 @@ def watch_workflows(api, session):
                     namespace=KF_PIPELINES_NAMESPACE,
                     plural=PLURAL,
                 )
+
+            sys.stdout.flush()    
+
 
 
 def update_status(workflow_manifest, session):
